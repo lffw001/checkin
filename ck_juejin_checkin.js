@@ -328,12 +328,12 @@ function randomRangeNumber(start = 500, end = 1000) {
 }
 
 !(async()=> {
-  if (!cookiesArr[0]) {
+  if (!AsVow[0]) {
     console.log($.name, '【提示】请先获取掘金账号一cookie');
     return;
   }
   let messageList = [];
-  for (let cookie of cookiesArr) {
+  for (let cookie of AsVow) {
     const checkin = new CheckIn(cookie);
 
     await $.wait(randomRangeNumber(1000, 5000))
