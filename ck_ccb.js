@@ -106,7 +106,7 @@ function get_Cookie(t) {
 
 //查看是否已签过到
 function get_Info() {
-    url = "https://fission-events.ccbft.com/activity/autographnew/info/31/AZGlA939"
+    url = "https://fission-events.ccbft.com/activity/autographnew/info/31/LmqJbkZ6"
     return new Promise(resolve => {
        fetch(url, {
           method: 'GET',
@@ -130,7 +130,7 @@ function get_Info() {
 
 //签到
 function sign() {
-    url = "https://fission-events.ccbft.com/activity/autographnew/register/31/AZGlA939"
+    url = "https://fission-events.ccbft.com/activity/autographnew/register/31/LmqJbkZ6"
     return new Promise(resolve => {
        fetch(url, {
           method: 'POST',
