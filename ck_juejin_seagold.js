@@ -7,7 +7,6 @@ cron 58 7 * * * ck_juejin_seagold.js
  */
 const utils = require('./utils');
 const Env = utils.Env;
-const sleep = utils.sleep;
 const getData = utils.getData;
 const $ = new Env('掘金-海底掘金');
 const notify = require('./sendNotify');
@@ -356,7 +355,7 @@ class Juejin_seagold {
       await this.gameStart();
 
       while (await this.executeGameCommand()) {
-        await sleep(randomRangeNumber(1000, 1500));
+        await $.wait(randomRangeNumber(1000, 1500));
 
         if (runTime >= runEndTime) {
           throw Error(`掘金游戏异常: 服务运行时间过长.`);
@@ -387,7 +386,7 @@ class Juejin_seagold {
         throw new Error("掘金游戏异常: 您 0 矿石游戏对局次数过多.");
       }
 
-      await sleep(randomRangeNumber(1000, 5000));
+      await $.wait(randomRangeNumber(1000, 5000));
       const gameOverInfo = await runGame();
 
       if (gameOverInfo.gameDiamond === 0) {
@@ -424,7 +423,7 @@ ${this.history.length ? `\n游戏记录\n${gameLives}` : ""}
   for (let i in AsVow) {
       cookie = AsVow[i].cookie;
       const seaGold = new Juejin_seagold(cookie);
-      await sleep(randomRangeNumber(1000, 5000)); // 初始等待1-5s
+      await $.wait(randomRangeNumber(1000, 5000)); // 初始等待1-5s
       await seaGold.run();
       const content = seaGold.toString();
       console.log(content);
