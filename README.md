@@ -20,3 +20,5 @@ RepoFileExtensions="js pl py sh ts"
 ql repo https://github.com/yxnwh/checkin.git "api_|ck_|ins_" "^checkin" "^sendNotify|^utils|cpm|^jsencrypt" "main"
 
 3.运行 签到依赖 任务
+
+4.复制check.sample.toml到config目录下，文件名改成check.toml，参考check.sample.toml的格式，在check.toml中添加上对应脚本的cookie或相关数据，有些脚本因为失效已删除，但check.toml仍然保留，不用管它
