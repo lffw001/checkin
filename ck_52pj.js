@@ -27,40 +27,40 @@ async function pojie() {
   if (AsVow) {
     for (i in AsVow) {
       cookie = AsVow[i].cookie;
-	  cookie = decodeURIComponent(cookie.replace(/\s*/g,""));
+      cookie = decodeURIComponent(cookie.replace(/\s*/g,""));
       if (cookie) {
         head = `=== 正对在第 ${i+1} 的账号签到===\n`;
         info += `\n${head}`;
         cookieList = cookie.split(";");
-		let filteredCookies = '';
-		for (const cookie of cookieList) {
-			key = cookie.split("=")[0];
-			if (key == "htVC_2132_saltkey") {
-				filteredCookies += cookie + "; ";
-			}
-			if (key == "htVC_2132_auth") {
-				filteredCookies += cookie + ";";
-			}
-		}
-		tmp1 = await get_cookie(filteredCookies)
-		tmp2 = await get_cookie2(tmp1)
-		jx_data = await get_sign(tmp2)
-		if (jx_data.includes("您需要先登录才能继续本操作")) {
-			console.log(`Cookie 失效`);
-			info += `Cookie 失效`;
-		} else if (jx_data.includes("恭喜")) {
-			console.log(`签到成功`);
-			info += `签到成功`;
-		} else if (jx_data.includes("不是进行中的任务")) {
-			console.log(`今日已签到`);
-			info += `今日已签到`;
-		} else {
-			console.log(`签到失败`);
-			info += `签到失败`;
-		}
+        let filteredCookies = '';
+        for (const cookie of cookieList) {
+            key = cookie.split("=")[0];
+            if (key == "htVC_2132_saltkey") {
+                filteredCookies += cookie + "; ";
+            }
+            if (key == "htVC_2132_auth") {
+                filteredCookies += cookie + ";";
+            }
+        }
+        tmp1 = await get_cookie(filteredCookies)
+        tmp2 = await get_cookie2(tmp1)
+        jx_data = await get_sign(tmp2)
+        if (jx_data.includes("您需要先登录才能继续本操作")) {
+            console.log(`Cookie 失效`);
+            info += `Cookie 失效`;
+        } else if (jx_data.includes("恭喜")) {
+            console.log(`签到成功`);
+            info += `签到成功`;
+        } else if (jx_data.includes("不是进行中的任务")) {
+            console.log(`今日已签到`);
+            info += `今日已签到`;
+        } else {
+            console.log(`签到失败`);
+            info += `签到失败`;
+        }
         desp += info;
         info = '';
-      } 
+      }
     }
     info += desp;
     console.log(info);
@@ -80,11 +80,11 @@ function get_cookie(cookie) {
             url: "https://www.52pojie.cn/CSPDREL2hvbWUucGhwP21vZD10YXNrJmRvPWRyYXcmaWQ9Mg==?wzwscspd=MC4wLjAuMA==",
             method: "get",
             headers: headers,
-			followRedirect: false,
+            followRedirect: false,
         };
         request(option, (error, response, body) => {
             cookie = cookie + response.headers['set-cookie']
-			resolve(cookie)
+            resolve(cookie)
         });
     });
 };
@@ -96,11 +96,11 @@ function get_cookie2(cookie) {
             url: "https://www.52pojie.cn/home.php?mod=task&do=apply&id=2&referer=%2F",
             method: "get",
             headers: headers,
-			followRedirect: false,
+            followRedirect: false,
         };
         request(option, (error, response, body) => {
             cookie = cookie + response.headers['set-cookie']
-			resolve(cookie)
+            resolve(cookie)
         });
     });
 };
@@ -120,7 +120,7 @@ function get_sign(cookie) {
                 var $ = cheerio.load(html);
                 jx_data = $("#messagetext p").text();
                 console.log(jx_data)
-			    resolve(jx_data)
+                resolve(jx_data)
             }
         });
     });
