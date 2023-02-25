@@ -31,6 +31,7 @@ async function pojie() {
       if (cookie) {
         head = `=== 正对在第 ${i+1} 的账号签到===\n`;
         info += `\n${head}`;
+        cookieList = cookie.split(";");
 		let filteredCookies = '';
 		for (const cookie of cookieList) {
 			key = cookie.split("=")[0];
@@ -79,11 +80,11 @@ function get_cookie(cookie) {
             url: "https://www.52pojie.cn/CSPDREL2hvbWUucGhwP21vZD10YXNrJmRvPWRyYXcmaWQ9Mg==?wzwscspd=MC4wLjAuMA==",
             method: "get",
             headers: headers,
-			      followRedirect: false,
+			followRedirect: false,
         };
         request(option, (error, response, body) => {
             cookie = cookie + response.headers['set-cookie']
-			      resolve(cookie)
+			resolve(cookie)
         });
     });
 };
@@ -95,11 +96,11 @@ function get_cookie2(cookie) {
             url: "https://www.52pojie.cn/home.php?mod=task&do=apply&id=2&referer=%2F",
             method: "get",
             headers: headers,
-			      followRedirect: false,
+			followRedirect: false,
         };
         request(option, (error, response, body) => {
             cookie = cookie + response.headers['set-cookie']
-			      resolve(cookie)
+			resolve(cookie)
         });
     });
 };
@@ -118,7 +119,8 @@ function get_sign(cookie) {
                 var html = iconv.decode(body, 'gbk')
                 var $ = cheerio.load(html);
                 jx_data = $("#messagetext p").text();
-			          resolve(jx_data)
+                console.log(jx_data)
+			    resolve(jx_data)
             }
         });
     });
