@@ -1,7 +1,7 @@
 请勿fork，点亮star即可，不会跑路滴~！
 
 
-转载自https://github.com/Oreomeow/checkinpanel
+转载自https://github.com/OreosLab/checkinpanel
 
 感谢Oreo大佬基于青龙的架构！！
 
