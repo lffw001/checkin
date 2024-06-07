@@ -199,13 +199,13 @@ function Lottery(s) {
                 const obj = JSON.parse(data);
                 if (obj.title) {
                   LotteryMsg = `应用抽奖: ${obj.title != '影片推荐' && obj.awardName || '未中奖'} 🎉`;
-                  LotteryMsg = obj.kv.code == 'Q00702' && `应用抽奖: 您的抽奖次数已经用完 ⚠️` || LotteryMsg;
+                  LotteryMsg = obj.kv.code == 'Q00702' && `应用抽奖: 您的抽奖次数已经用完 ⚠️\n` || LotteryMsg;
                   $nobyda.stop = obj.kv.code == 'Q00702';
                 } else if (obj.kv.code == 'Q00304') {
-                  LotteryMsg = `应用抽奖: Cookie无效 ⚠️`;
+                  LotteryMsg = `应用抽奖: Cookie无效 ⚠️\n`;
                   $nobyda.stop = 1;
                 } else {
-                  LotteryMsg = `应用抽奖: 未知错误 ⚠️`
+                  LotteryMsg = `应用抽奖: 未知错误 ⚠️\n`
                 }
             } catch (e) {
                 LotteryMsg = `app抽奖: ${e.message || e}\n`;
