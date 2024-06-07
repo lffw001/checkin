@@ -133,7 +133,7 @@ function Checkin() {
             "agentVersion": "15.4.6",
             "authCookie": P00001,
             "taskCode": "iQIYI_mofhr",
-            "dfp": DFP,
+            "dfp": dfp,
             "qyid": md5(stringRandom(16).toString()),
             "agentType": 20,
             "signFrom": 1
@@ -206,6 +206,7 @@ function Lottery(s) {
                   $nobyda.stop = 1;
                 } else {
                   LotteryMsg = `应用抽奖: 未知错误 ⚠️`
+                }
             } catch (e) {
                 LotteryMsg = `app抽奖: ${e.message || e}\n`;
             }
