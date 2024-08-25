@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# 原作者：WowYiJiu@Linux.do-KeepAlive 
+# 地址：https://github.com/WowYiJiu/Linux.do-KeepAlive
+# 使用claude精简了原作者的代码，并小修改了部门执行逻辑，多账号能完美运行
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
