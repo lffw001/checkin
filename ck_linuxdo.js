@@ -220,7 +220,7 @@ class LinuxDoBrowser:
         if self.login():
             self.click_topic()
             logging.info(f"🎉恭喜：{self.username}，帖子浏览全部完成")
-            #self.print_connect_info()
+            # self.print_connect_info()
             if user_data := self.fetch_user_data(self.username):
                 print(self.update_popup_content(user_data['user_summary'], user_data['users'][0]))
             self.logout()
