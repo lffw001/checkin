@@ -17,7 +17,7 @@ RepoFileExtensions="js pl py sh ts"
 2.拉库
 
 
-ql repo https://github.com/yxnwh/checkin.git "api_|ck_|ins_" "^checkin" "^sendNotify|^utils|cpm|^jsencrypt" "main"
+ql repo https://github.com/iptag/checkin.git "api_|ck_|ins_" "^checkin" "^sendNotify|^utils|cpm|^jsencrypt" "main"
 
 3.运行 签到依赖 任务
 
